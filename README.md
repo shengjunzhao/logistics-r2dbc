@@ -1,12 +1,8 @@
-…or create a new repository on the command line
-echo "# logistics-r2dbc" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/shengjunzhao/logistics-r2dbc.git
-git push -u origin main
-…or push an existing repository from the command line
-git remote add origin https://github.com/shengjunzhao/logistics-r2dbc.git
-git branch -M main
-git push -u origin main
+# 说明
+此项目是spring webflux中R2DBC访问MySQL的项目样例。依赖`spring-boot-starter-parent:3.2.5`、`io.asyncer:r2dbc-mysql`的mysql驱动。实现了：
+
+1. 响应式数据保存。
+2. 响应式多表分页查询。
+
+
+
