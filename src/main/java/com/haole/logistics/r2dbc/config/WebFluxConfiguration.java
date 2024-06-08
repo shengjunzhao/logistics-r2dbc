@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.codec.ServerCodecConfigurer;
 import org.springframework.web.reactive.accept.RequestedContentTypeResolver;
+import org.springframework.web.reactive.config.EnableWebFlux;
 
 /**
  * ClassName: WebFluxConfiguration
@@ -17,6 +18,7 @@ import org.springframework.web.reactive.accept.RequestedContentTypeResolver;
  * 作者姓名           修改时间           版本号              描述
  */
 @Configuration
+@EnableWebFlux
 public class WebFluxConfiguration {
 
     @Bean

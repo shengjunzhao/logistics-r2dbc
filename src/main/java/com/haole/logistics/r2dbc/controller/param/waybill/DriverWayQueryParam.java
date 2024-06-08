@@ -1,5 +1,7 @@
 package com.haole.logistics.r2dbc.controller.param.waybill;
 
+import jakarta.validation.constraints.NotBlank;
+
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -14,6 +16,7 @@ public class DriverWayQueryParam implements Serializable {
     @Serial
     private static final long serialVersionUID = -4073695066427333501L;
 
+    @NotBlank(message="请提供手机号")
     private String mobileNo;
 
     /**
