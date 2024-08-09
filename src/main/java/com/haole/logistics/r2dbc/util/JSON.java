@@ -27,8 +27,7 @@ public interface JSON {
         } else {
             try {
                 return objectMapper.readValue(text, clazz);
-            } catch (Exception var3) {
-                Exception e = var3;
+            } catch (Exception e) {
                 throw new JSONParseException(String.format("JSON String : %s deserialize [%s]异常", text, clazz.getName()), e);
             }
         }
@@ -40,8 +39,7 @@ public interface JSON {
         } else {
             try {
                 return objectMapper.readValue(text, valueTypeRef);
-            } catch (Exception var3) {
-                Exception e = var3;
+            } catch (Exception e) {
                 throw new JSONParseException(String.format("JSON String : %s deserialize [%s]异常", text, valueTypeRef.getType().getTypeName()), e);
             }
         }
@@ -55,8 +53,7 @@ public interface JSON {
 
             try {
                 return (List) objectMapper.readValue(text, javaType);
-            } catch (Exception var4) {
-                Exception e = var4;
+            } catch (Exception e) {
                 throw new JSONParseException(String.format("JSON String : %s deserialize [%s]异常", text, clazz.getName()), e);
             }
         }
