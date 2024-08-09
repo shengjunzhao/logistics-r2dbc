@@ -19,7 +19,13 @@ import java.util.TimeZone;
 
 public interface JSON {
 
-    ObjectMapper objectMapper = (new ObjectMapper()).registerModule(new Jdk8Module()).registerModule(new JavaTimeModule()).registerModule(new ParameterNamesModule()).disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS).disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES).setTimeZone(TimeZone.getTimeZone("GMT+8"));
+    ObjectMapper objectMapper = (new ObjectMapper())
+            .registerModule(new Jdk8Module())
+            .registerModule(new JavaTimeModule())
+            .registerModule(new ParameterNamesModule())
+            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+            .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+            .setTimeZone(TimeZone.getTimeZone("GMT+8"));
 
     static <T> T parseObject(String text, Class<T> clazz) {
         if (!StringUtils.hasText(text)) {
