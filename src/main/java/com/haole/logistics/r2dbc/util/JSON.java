@@ -65,8 +65,7 @@ public interface JSON {
         } else {
             try {
                 return objectMapper.writeValueAsString(obj);
-            } catch (JsonProcessingException var2) {
-                JsonProcessingException e = var2;
+            } catch (JsonProcessingException e) {
                 throw new JSONSerializeException("JSON 序列化异常", e);
             }
         }
