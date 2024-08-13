@@ -1,10 +1,10 @@
 package com.haole.logistics.r2dbc.dal.model;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 

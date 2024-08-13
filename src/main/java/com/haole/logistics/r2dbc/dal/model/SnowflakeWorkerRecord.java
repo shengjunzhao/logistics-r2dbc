@@ -1,9 +1,9 @@
 package com.haole.logistics.r2dbc.dal.model;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "snowflake_worker_record")
@@ -16,7 +16,7 @@ public class SnowflakeWorkerRecord implements Serializable {
 	 */
 	@Id
 	@org.springframework.data.annotation.Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "record_id")
 	private Long recordId;
 	/**
