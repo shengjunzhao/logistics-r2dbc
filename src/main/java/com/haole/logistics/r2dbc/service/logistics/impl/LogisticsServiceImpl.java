@@ -119,12 +119,18 @@ public class LogisticsServiceImpl implements LogisticsService {
                 p.getReceiveAddress().setAddrLal(reverseAddress.get(1).getLonLat().split(",")[1]);
                 //构建订单信息
                 LogisticsOrderBill logisticsOrderBill = beanMapper.map(p, LogisticsOrderBill.class);
-                if (null != logisticsOrderBill.getCargoWeight()) {
-                    logisticsOrderBill.setCargoWeight(BigDecimalUtil.divide(logisticsOrderBill.getCargoWeight(), 3));
-                }
-                if (null != logisticsOrderBill.getCargoVolume()) {
-                    logisticsOrderBill.setCargoVolume(BigDecimalUtil.divide(logisticsOrderBill.getCargoVolume(), 3 * 3));
-                }
+                Optional.ofNullable(logisticsOrderBill.getCargoWeight()).ifPresent(w ->
+                        logisticsOrderBill.setCargoWeight(BigDecimalUtil.divide(w, 3))
+                );
+//                if (null != logisticsOrderBill.getCargoWeight()) {
+//                    logisticsOrderBill.setCargoWeight(BigDecimalUtil.divide(logisticsOrderBill.getCargoWeight(), 3));
+//                }
+                Optional.ofNullable(logisticsOrderBill.getCargoVolume()).ifPresent(v ->
+                        logisticsOrderBill.setCargoVolume(BigDecimalUtil.divide(v, 3 * 3))
+                );
+//                if (null != logisticsOrderBill.getCargoVolume()) {
+//                    logisticsOrderBill.setCargoVolume(BigDecimalUtil.divide(logisticsOrderBill.getCargoVolume(), 3 * 3));
+//                }
                 logisticsOrderBill.setLogisticsOrderId(generator.nextId());
 
                 //发货地址信息
