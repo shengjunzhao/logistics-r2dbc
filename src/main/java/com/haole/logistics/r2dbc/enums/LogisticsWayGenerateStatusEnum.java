@@ -1,10 +1,18 @@
 package com.haole.logistics.r2dbc.enums;
 
+import com.haole.logistics.r2dbc.util.EnumCache;
+
 public enum LogisticsWayGenerateStatusEnum {
 
     NO(0, "未生成运单"),
     YES(1, "已生成运单"),
     ;
+
+    static {
+        EnumCache.registerByName(LogisticsWayGenerateStatusEnum.class, values());
+        EnumCache.registerByValue(LogisticsWayGenerateStatusEnum.class, values(), LogisticsWayGenerateStatusEnum::getType);
+    }
+//   EnumCache.findByValue(LogisticsWayGenerateStatusEnum.class,0,null);
 
 
     LogisticsWayGenerateStatusEnum(Integer type, String desc) {

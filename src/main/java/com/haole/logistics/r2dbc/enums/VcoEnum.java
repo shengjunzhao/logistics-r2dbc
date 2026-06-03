@@ -6,7 +6,6 @@ public enum VcoEnum {
     YELLO("黄牌", 2),//黄牌
     YELLO_BLUE("黄绿色", 3);// 黄绿色
 
-
     VcoEnum(String desc, int type) {
         this.type = type;
         this.desc = desc;

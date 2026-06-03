@@ -1,10 +1,18 @@
 package com.haole.logistics.r2dbc.enums;
 
+import java.util.Arrays;
+
 public enum DeleteFlag {
 
     NOT_DELETED(0, "未删除"),
     DELETED(1, "已删除");
 
+    private static final DeleteFlag[] VALUES;
+
+
+    static {
+        VALUES = DeleteFlag.values();
+    }
 
     DeleteFlag(Integer type, String desc) {
         this.type = type;
@@ -40,6 +48,13 @@ public enum DeleteFlag {
             }
         }
         return null;
+    }
+
+    public static DeleteFlag of(Integer type) {
+        return Arrays.stream(values())
+                .filter(item -> item.getType().equals(type))
+                .findAny()
+                .orElse(null);
     }
 
 }

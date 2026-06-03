@@ -1,5 +1,9 @@
 package com.haole.logistics.r2dbc.enums;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 public enum WayHandleTypeEnum {
 
     KD100(1, "快递100"),//快递运输
@@ -8,6 +12,14 @@ public enum WayHandleTypeEnum {
     CARRIER(4, "承运商"),
     ;
 
+    private static final Map<Integer, WayHandleTypeEnum> LOOKUP;
+
+    static {
+        LOOKUP = new HashMap<>();
+        for (WayHandleTypeEnum w : WayHandleTypeEnum.values()) {
+            LOOKUP.put(w.getType(), w);
+        }
+    }
 
     WayHandleTypeEnum(Integer type, String desc) {
         this.type = type;
@@ -37,13 +49,19 @@ public enum WayHandleTypeEnum {
     }
 
     public static WayHandleTypeEnum get(Integer type) {
-
         for (WayHandleTypeEnum e : WayHandleTypeEnum.values()) {
             if (e.getType().equals(type)) {
                 return e;
             }
         }
         return null;
+    }
+
+    public static WayHandleTypeEnum of(Integer type) {
+        return Arrays.stream(values())
+                .filter(item -> item.getType().equals(type))
+                .findAny()
+                .orElse(null);
     }
 
     public static WayHandleTypeEnum getByDesc(String desc) {
